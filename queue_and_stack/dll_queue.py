@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../doubly_linked_list')
+sys.path.append('./doubly_linked_list.py')
 from doubly_linked_list import DoublyLinkedList
 
 
@@ -7,13 +7,24 @@ class Queue:
     def __init__(self):
         self.size = 0
         # Why is our DLL a good choice to store our elements?
-        # self.storage = ?
+        # Each element has a reference to both the next and the previous element.
+        self.storage = DoublyLinkedList()
 
+
+
+    # enqueue -> Adds an item to the queue. If the queue is full, then it is said to
+    # be an Overflow condition 
+    # adding so set the size to += 1
     def enqueue(self, value):
-        pass
+        self.size += 1
+        return self.storage.add_to_tail(value)
 
+    # dequeue  ->  removes the item from the queue. 
+    # use the remove_from_head from doubly_linked_list
     def dequeue(self):
-        pass
+        if self.size != 0:
+            self.size -= 1
+            return self.storage.remove_from_head()
 
     def len(self):
-        pass
+        return self.size
