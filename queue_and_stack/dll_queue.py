@@ -26,7 +26,6 @@ class Queue:
         if self.size != 0:
             self.size -= 1
             return self.storage.remove_from_head()
-        print('hello')
 
     def len(self):
         return self.size
